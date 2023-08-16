@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { createForm } from "../redux/form/form.action";
 
 function CreateForm() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
+  const { token } = useSelector((store) => store.auth);
 
   const handleCreateForm = () => {
     if (title.trim() !== "") {
-      dispatch(createForm(title));
+      dispatch(createForm({title,token}));
       setTitle("");
     }
   };

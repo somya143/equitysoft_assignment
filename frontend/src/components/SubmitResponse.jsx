@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getForms, submitForm } from "./redux/form.actions";
+import { getForm, submitForm } from "../redux/form/form.action";
 
 function SubmitResponse() {
   const dispatch = useDispatch();
-  const forms = useSelector((state) => state.form.forms);
+  const {forms} = useSelector((state) => state.form);
   const [selectedForm, setSelectedForm] = useState("");
   const [responses, setResponses] = useState([]);
 
   useEffect(() => {
-    dispatch(getForms());
+    dispatch(getForm());
   }, [dispatch]);
 
   const handleAddResponse = () => {
@@ -44,7 +44,7 @@ function SubmitResponse() {
         onChange={(e) => setSelectedForm(e.target.value)}
       >
         <option value="">Select Form</option>
-        {forms.map((form) => (
+        {forms?.map((form) => (
           <option key={form._id} value={form}>
             {form.title}
           </option>

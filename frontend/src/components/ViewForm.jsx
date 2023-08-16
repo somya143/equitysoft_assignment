@@ -4,7 +4,7 @@ import { getForm } from "../redux/form/form.action";
 
 function ViewForms() {
   const {isError, isLoading, forms} = useSelector((state) => state.form);
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getForm())
@@ -14,7 +14,7 @@ function ViewForms() {
     <div>
       <h2>View Forms</h2>
       <div className="form-grid">
-        {forms.map((form) => (
+        {forms?.map((form) => (
           <div key={form._id} className="form-box">
             <h3>{form.title}</h3>
           </div>
