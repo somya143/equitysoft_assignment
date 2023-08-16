@@ -19,6 +19,7 @@ import {
   import { getRegister } from "../redux/auth/auth.action"
   import Loader from '../components/Loader';
   import Error from '../components/Error';
+import Navbar from '../components/Navbar';
 
 const Signup = () => {
     const [register , setRegister] = useState({});
@@ -61,9 +62,10 @@ const Signup = () => {
   return (
     <Box bgGradient='linear(to-l,#222222, rgba(100,180,349,28.5))'
     width="100%"
-    height={{ base: "100vh", sm: "100vh", md: "100vh", lg: "100vh" }}
+    height={{ base: "100vh", sm: "100vh", md: "100vh", lg: "92vh" }}
     >
-      <Box margin={"auto"} w={{ base: "100%", md: "50%", lg: "55%" }} className='registerBox' mt={"70px"}  >
+      <Navbar />
+      <Box margin={"auto"} w={{ base: "100%", md: "50%", lg: "55%" }} className='registerBox' mt={"60px"}  >
         <Heading textAlign={"center"} color={"#fff"} fontSize={"3.2rem"} fontWeight={700} fontFamily={"sans-serif"} pb={"30px"} textDecoration={"underline"}>
             Sign Up
         </Heading>
@@ -88,15 +90,6 @@ const Signup = () => {
    <ListIcon  onClick={togglePasswordVisibility} as={ showPassword? (AiFillEye):(AiFillEyeInvisible)} fontSize={"35px"} color={"#fff"} />
    </List>
    </Box>
-
-   <FormLabel m={"10px"} color={"#fff"}>Age :</FormLabel>
-   <Input type='Number' color={"white"} onChange={handleChange} name='age' />
-
-   <Select placeholder='Select Gender :' mt={"30px"} color={"#333"}  fontWeight={"bold"} onChange={handleChange} name='gender'>
-  <option value='Male'>Male</option>
-  <option value='Female'>Female</option>
-  <option value='Other'>Other</option>
-</Select>
 </FormControl>
 
 <Button type='submit' mt={"30px"} w={"100%"} h={"3rem"} fontSize={"27px"} variant={"ghost"} backgroundColor={"#333"} color={"#fff"}>Register</Button>

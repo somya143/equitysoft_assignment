@@ -17,6 +17,7 @@ import {
   import Error from "../components/Error";
   import { useLocation, useNavigate } from "react-router-dom";
 import { Link as ReachLink } from "react-router-dom";
+import Navbar from '../components/Navbar';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai"
 
 const Login = () => {
@@ -42,7 +43,7 @@ const Login = () => {
       if(isAuth && state && state.from){
          navigate(state?.from, {replace : true})
         }else if(isAuth){
-        console.log("auth success")
+        navigate("/")
          }
       }, [isAuth,navigate,state])
   
@@ -59,8 +60,11 @@ const Login = () => {
   return (
     <Box bgGradient='linear(to-l,#222222, rgba(100,180,349,28.5))'
     width="100%"
-    height={{ base: "100vh", sm: "100vh", md: "100vh", lg: "100vh" }}>
-         <Box margin="auto" w="50%" borderRadius={"10px"} mt={"70px"}  >
+    height={{ base: "100vh", sm: "100vh", md: "100vh", lg: "92vh" }}>
+
+        <Navbar />
+
+         <Box margin="auto" w="50%" borderRadius={"10px"} mt={"60px"}  >
         <Heading textAlign={"center"} color={"#fff"} pt={"30px"} fontSize={"3.2rem"} fontWeight={700} fontFamily={"sans-serif"} pb={"30px"} textDecoration={"underline"}>
             Login 
         </Heading>
