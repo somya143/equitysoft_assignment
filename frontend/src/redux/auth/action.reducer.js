@@ -5,7 +5,7 @@ import { auth_login_failure,
     auth_register_loading,
     auth_register_success,
     auth_signout 
-   } from "./auth.actionType"
+   } from "./auth.actionTypes"
 
 const token = localStorage.getItem("token")
 const refreshToken = localStorage.getItem("refreshToken")

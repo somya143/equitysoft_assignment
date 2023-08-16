@@ -4,7 +4,7 @@ import { auth_login_failure,
     auth_register_failure,
     auth_register_loading,
     auth_register_success,
-    auth_signout } from "./auth.actionType";
+    auth_signout } from "./auth.actionTypes";
 import axios from "axios";
 const api = process.env.REACT_BASE_API || "http://localhost:8080";
 export const getRegister = (payload) => async(dispatch) => {
