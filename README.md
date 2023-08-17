@@ -3,8 +3,9 @@ This is an assignment I got from my interviewing company. Basically this a form 
 login and create forms needed and view the form and can add questions to form and also add response to questions and submit.
 I have used redux for state management, jwt-decode to decode the token after login. Using localstorage to store the token and refreshtoken.
 I have used Chakra-Ui, an external CSS library for styling and axios to retrive the data from network request.
-![Uploading Screenshot (20).png…]()
-![Screenshot (21)](https://github.com/somya143/equitysoft_assignment/assets/103635044/3e5ce252-d421-40d7-85ed-eb6477a63f25)
+
+![Screenshot (21)]![Screenshot (20)](https://github.com/somya143/equitysoft_assignment/assets/103635044/ce4e52be-9a5e-42b9-bd40-7e45323a5fa5)
+(https://github.com/somya143/equitysoft_assignment/assets/103635044/3e5ce252-d421-40d7-85ed-eb6477a63f25)
 ![Screenshot (22)](https://github.com/somya143/equitysoft_assignment/assets/103635044/242b5fd5-e845-44fc-96d4-aaf1e5dd2897)
 ![Screenshot (23)](https://github.com/somya143/equitysoft_assignment/assets/103635044/a4ace1a9-2d20-459a-b2dd-c4ea666d03c5)
 ![Screenshot (24)](https://github.com/somya143/equitysoft_assignment/assets/103635044/ebeaa96e-7019-4dc5-9bde-9f23d4511316)
