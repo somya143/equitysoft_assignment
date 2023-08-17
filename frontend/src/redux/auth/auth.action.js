@@ -6,7 +6,7 @@ import { auth_login_failure,
     auth_register_success,
     auth_signout } from "./auth.actionTypes";
 import axios from "axios";
-const api = process.env.REACT_BASE_API || "http://localhost:8080";
+const api = process.env.REACT_BASE_API || "https://formmanagement.onrender.com";
 export const getRegister = (payload) => async(dispatch) => {
    dispatch({type: auth_register_loading})
    try {
