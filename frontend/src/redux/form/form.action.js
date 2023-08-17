@@ -48,13 +48,19 @@ export const addQuestionToForm = (formId,questionText,valueType,token) => async 
     }
 }
 
-export const submitForm = (formId,responses) => async (dispatch) => {
+export const submitForm = (formId,responses,token) => async (dispatch) => {
     dispatch({ type: SUBMIT_FORM_REQUEST });
     try {
-        const response = await axios.post(`${api}/${formId}/submit`, {responses});
+        const response = await axios_instance.post(`${api}/${formId}/submit`, {responses} , {
+            headers: {
+              authorization: token,
+            },
+          });
         dispatch({ type: SUBMIT_FORM_SUCCESS , payload: response.data });
+        console.log(response.data)
         return response.data;
     } catch (error) {
         dispatch({ type: SUBMIT_FORM_FAILURE , payload: error.message})
+        console.log(error.message)
     }
 }

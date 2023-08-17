@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addQuestionToForm, getForm } from "../redux/form/form.action";
+import { Box, Heading, Select, Button, Input } from "@chakra-ui/react";
 
 function AddQuestion() {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ function AddQuestion() {
   }, [dispatch]);
 
   const handleAddQuestion = () => {
-    if (selectedForm && questionText && valueType) {
-      dispatch(addQuestionToForm(selectedForm._id, questionText, valueType,token));
+    if (selectedForm && selectedForm !== "" && questionText && valueType) {
+      dispatch(addQuestionToForm(selectedForm, questionText, valueType,token));
       setSelectedForm("");
       setQuestionText("");
       setValueType("Text"); // Reset to default value type
@@ -24,9 +25,14 @@ function AddQuestion() {
   };
 
   return (
-    <div>
-      <h2>Add Question</h2>
-      <select
+    <Box width={"80%"} margin={"auto"} >
+      <Heading textAlign={"center"} color={"#fff"} textDecoration={"underline"}>Add Question</Heading>
+      <Select
+        mt={"3rem"}
+        height={"4rem"}
+        fontSize={"21px"}
+        fontFamily={"cursive"}
+        color={"#333"}
         value={selectedForm}
         onChange={(e) => setSelectedForm(e.target.value)}
       >
@@ -36,16 +42,28 @@ function AddQuestion() {
             {form.title}
           </option>
         ))}
-      </select>
+      </Select>
       {selectedForm && (
-        <div>
-          <input
+        <Box>
+          <Input
+            mt={"2rem"}
+            height={"4rem"}
+            color={"#333"}
+            fontSize={"20px"}
+            backgroundColor={"#fff"}
+            focusBorderColor="transparent"
             type="text"
             value={questionText}
             onChange={(e) => setQuestionText(e.target.value)}
             placeholder="Enter Question Text"
           />
-          <select
+          <Select
+             mt={"2rem"}
+             height={"3rem"}
+             fontSize={"19px"}
+             fontFamily={"cursive"}
+             focusBorderColor="transparent"
+             color={"#333"}
             value={valueType}
             onChange={(e) => setValueType(e.target.value)}
           >
@@ -54,11 +72,13 @@ function AddQuestion() {
             <option value="Date">Date</option>
             <option value="Time">Time</option>
             <option value="Float">Float</option>
-          </select>
-          <button onClick={handleAddQuestion}>Add Question</button>
-        </div>
+          </Select>
+          <Button mt={"2rem"} onClick={handleAddQuestion}>Add Question</Button>
+        </Box>
       )}
-    </div>
+
+      
+    </Box>
   );
 }
 
